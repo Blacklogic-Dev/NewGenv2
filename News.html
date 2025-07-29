@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog & News | NewGen Innovators Network</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, red, yellow);
+      color: blue;
+    }
+
+    header {
+      background-color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: blue;
+    }
+
+    .blog-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .blog-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .blog-card img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .blog-text {
+      flex: 1;
+    }
+
+    .blog-text h2 {
+      margin-top: 0;
+      color: blue;
+    }
+
+    .blog-text p {
+      font-size: 15px;
+      color: #333;
+    }
+
+    @media screen and (max-width: 768px) {
+      .blog-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .blog-card img {
+        margin: 0 0 20px 0;
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Blog & News</h1>
+  </header>
+
+  <section class="blog-section">
+    
+    <div class="blog-card">
+      <img src="Sky.png" alt="AI Drone">
+      <div class="blog-text">
+        <h2>Smart First Response Drone</h2>
+        <p>Professor BlackLogic is currently working on a future-changing project: a drone powered by artificial intelligence and machine learning to collect data as emergency evidence and act faster than traditional systems.</p>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="Logo.png" alt="Black Empowerment App">
+      <div class="blog-text">
+        <h2>Black Empowerment Online Application</h2>
+        <p>This app is still in the design phase, but its foundation is solid. Professor BlackLogic is diving deep into React and Tailwind CSS to create a smooth, user-friendly interface for future applicants.</p>
+      </div>
+    </div>
+
+    <div class="blog-card">
+      <img src="millietune.jpg" alt="MillieTune MVP">
+      <div class="blog-text">
+        <h2>MillieTune MVP Launch</h2>
+        <p>MillieTune is shaking the music space. With bold colors and interactive features like artist following and live streaming, it’s already gaining attention and proving that Professor BlackLogic is a visionary tech leader.</p>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses – NewGen Innovators Network</title>
+    <title>NewGen Innovators Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, red, yellow);
+      color: blue;
+    }
+
+    /* Top Navigation */
+    .top-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .top-nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: blue;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      background: yellow;
+      color: red;
+      transform: scale(1.05);
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .course-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .course-card {
+      background: linear-gradient(145deg, red, orange);
+      color: white;
+      width: 300px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s, background 0.4s;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+      background: linear-gradient(145deg, blue, darkblue);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .course-content {
+      padding: 20px;
+    }
+
+    .course-content h2 {
+      margin-top: 0;
+      color: white;
+    }
+
+    .course-content p {
+      font-size: 14px;
+    }
+
+    .enroll-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: white;
+      color: red;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+
+    .enroll-btn:hover {
+      background-color: yellow;
+      color: blue;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.15);
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .bottom-nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: blue;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .bottom-nav a:hover {
+      background: yellow;
+      color: red;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav" id="topNav">
+    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+    <a href="bot.html"><i class="fas fa-robot"></i> Chatbot</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Courses We Offer</h1>
+    <p>Empowering leaders, coders, and creators through education</p>
+  </header>
+
+  <!-- COURSE GRID -->
+  <div class="course-container">
+    <div class="course-card">
+      <img src="AI.jpg" alt="AI">
+      <div class="course-content">
+        <h2>AI & Machine Learning</h2>
+        <p>Basics of AI, ML for Beginners, and Tech for Everyone.</p>
+        <a href="machine.html" class="enroll-btn">Enroll Now</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="Data.jpg" alt="Data Analysis">
+      <div class="course-content">
+        <h2>Data Analysis</h2>
+        <p>Learn data analysis, Excel for data, and Python visualization.</p>
+        <a href="data.html" class="enroll-btn">Enroll Now</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="Code.jpg" alt="Coding">
+      <div class="course-content">
+        <h2>Coding & Programming</h2>
+        <p>Intro to Python, Web Development, and Programming Languages.</p>
+        <a href="code.html" class="enroll-btn">Enroll Now</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="Graphic.jpg" alt="Design">
+      <div class="course-content">
+        <h2>Graphic Design</h2>
+        <p>2D/3D Design, Web Design, and UX/UI Development skills.</p>
+        <a href="graph.html" class="enroll-btn">Enroll Now</a>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <img src="Leader.jpg" alt="Leadership">
+      <div class="course-content">
+        <h2>Leadership in Tech</h2>
+        <p>Become a tech leader, mentor, and team builder in innovation.</p>
+        <a href="lead.html" class="enroll-btn">Enroll Now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+  </nav>
+
+
+</body>
+</html>

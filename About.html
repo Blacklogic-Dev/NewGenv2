@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - NewGen Innovators Network</title>
+    <title>NewGen Innovators Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, red, yellow);
+      color: white;
+    }
+
+    /* NAVIGATION */
+    .top-nav, .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.2);
+      position: sticky;
+      z-index: 1000;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .top-nav a, .bottom-nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: blue;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover, .bottom-nav a:hover {
+      background: yellow;
+      color: red;
+      transform: scale(1.05);
+    }
+
+    header {
+      text-align: center;
+      background-color: rgba(0, 0, 128, 0.9);
+      padding: 25px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+      color: white;
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      color: blue;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* PROFILE CARDS */
+    .team-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .profile {
+      background: linear-gradient(135deg, red, orange);
+      color: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .profile:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, blue, navy);
+    }
+
+    .profile img {
+      width: 180px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 25%;
+      margin-bottom: 15px;
+      border: 4px solid white;
+    }
+
+    .mission-card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .mission-card {
+      background-color: rgba(0, 0, 128, 0.8);
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      color: white;
+      box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    }
+
+    .mission-card img {
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 128, 0.9);
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav" id="topNav">
+    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+    <a href="bot.html"><i class="fas fa-robot"></i> Chatbot</a>
+  </nav>
+  <!-- HEADER -->
+  <header>
+    <h1>About Us - NewGen Innovators Network</h1>
+  </header>
+
+  <!-- MISSION -->
+  <section>
+    <h2>Our Mission</h2>
+    <p>
+      NewGen Innovators Network exists to spark the next generation of digital creators, tech leaders,
+      and self-driven minds. Created by <strong>BlackLogic</strong>, a self-taught developer who transformed
+      curiosity into powerful skills, our mission is to empower people with real opportunities to lead the future of technology.
+    </p>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section>
+    <h2>Meet the Founders</h2>
+    <div class="team-section">
+      <div class="profile">
+        <img src="Logic.jpg" alt="BlackLogic">
+        <h3>Mthokozisi "BlackLogic"</h3>
+        <p>Developer & Founder</p>
+      </div>
+
+      <div class="profile">
+        <img src="asanda.jpg" alt="Queen Asanda">
+        <h3>Queen Asanda</h3>
+        <p>Designer & CEO</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section>
+    <h2>Our Core Values</h2>
+    <div class="mission-card-container">
+
+      <div class="mission-card">
+        <img src="Innovation.jpg" alt="Innovation">
+        <h3>Innovation</h3>
+        <p>We drive solutions that challenge the status quo and change lives with code.</p>
+      </div>
+
+      <div class="mission-card">
+        <img src="Include.jpg" alt="Inclusivity">
+        <h3>Inclusivity</h3>
+        <p>We welcome learners from all backgrounds to grow in the tech space.</p>
+      </div>
+
+      <div class="mission-card">
+        <img src="Connect.jpg" alt="Empowerment">
+        <h3>Empowerment</h3>
+        <p>We uplift people with real skills, support, and access to knowledge.</p>
+      </div>
+
+      <div class="mission-card">
+        <img src="Collab.jpg" alt="Collaboration">
+        <h3>Collaboration</h3>
+        <p>We build together, mentor each other, and grow as one network.</p>
+      </div>
+
+      <div class="mission-card">
+        <img src="Leader.jpg" alt="Leadership">
+        <h3>Leadership</h3>
+        <p>We shape leaders who use tech to solve real-world problems.</p>
+      </div>
+
+    </div>
+  </section>
+
+   <!-- Bottom Navigation -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 NewGen Innovators Network. Built by BlackLogic.
+  </footer>
+
+</body>
+</html>

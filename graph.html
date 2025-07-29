@@ -1,0 +1,260 @@
+<!-- Save this as graphic_design.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphic Design Modules</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, red, yellow);
+      color: blue;
+    }
+    .top-nav, .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+    .top-nav a, .bottom-nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: blue;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .top-nav a:hover, .bottom-nav a:hover {
+      background: yellow;
+      color: red;
+      transform: scale(1.05);
+    }
+    header {
+      text-align: center;
+      padding: 30px 10px 10px;
+    }
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .module-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .module-card h3 {
+      margin-top: 0;
+      color: red;
+    }
+    .notes {
+      background: #fefefe;
+      padding: 10px;
+      border-left: 4px solid orange;
+      margin-bottom: 10px;
+    }
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 10px;
+    }
+    .quiz-question {
+      margin: 10px 0;
+    }
+    .quiz-btn {
+      display: block;
+      margin: 5px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .quiz-btn.correct {
+      background-color: green !important;
+    }
+    .quiz-btn.wrong {
+      background-color: darkred !important;
+    }
+    .progress-bar {
+      background-color: lightgray;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 20px;
+      height: 25px;
+    }
+    .progress {
+      background-color: green;
+      height: 100%;
+      width: 0%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+    .badge {
+      background: gold;
+      color: darkblue;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .congrats-message {
+      display: none;
+      padding: 10px;
+      margin-top: 10px;
+      background: green;
+      color: white;
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+    <a href="bot.html"><i class="fas fa-robot"></i> Chatbot</a>
+  </nav>
+  <header>
+    <h1>Graphic Design Modules</h1>
+    <div class="progress-bar">
+      <div id="progressFill" class="progress">0%</div>
+    </div>
+  </header>
+  <div class="modules-grid" id="modules"></div>
+  <div id="finalScore" style="text-align:center; font-size:20px; font-weight:bold; display:none;"></div>
+  <nav class="bottom-nav">
+    <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+  </nav>
+
+  <script>
+    const modules = [
+      {
+        title: "Module 1: Introduction to Graphic Design",
+        note: "Graphic design is the art of visually communicating ideas through typography, imagery, color, and layout. It combines creativity with digital tools to create visual content for branding, marketing, apps, websites and more.",
+        code: `Tools you can start with:\n1. Canva\n2. Adobe Express\n3. Microsoft Designer`,
+        questions: [
+          ["What is Graphic Design?", "Visual communication", ["Making music", "Visual communication", "Coding", "3D modeling"]],
+          ["Which tool is used in Graphic Design?", "Canva", ["VS Code", "Canva", "XAMPP", "Android Studio"]]
+        ],
+        badge: "Visual Communicator"
+      },
+      {
+        title: "Module 2: Color Theory",
+        note: "Color theory is the study of how colors interact. Designers use color to create mood, attract attention, or convey meaning. Understanding primary, secondary, and complementary colors helps create harmony.",
+        code: `# Examples of color moods:\nRed = passion/love\nBlue = calm/trust\nYellow = energy/joy`,
+        questions: [
+          ["Which color represents calm?", "Blue", ["Red", "Blue", "Black", "Orange"]],
+          ["What are complementary colors?", "Opposite on color wheel", ["Next to each other", "Same color", "Opposite on color wheel", "Shades of black"]]
+        ],
+        badge: "Color Master"
+      },
+      {
+        title: "Module 3: Typography Basics",
+        note: "Typography is the art of arranging type. It includes font choice, spacing, alignment, and style. Good typography improves readability and visual appeal.",
+        code: `Font Types:\n- Serif (Times New Roman)\n- Sans Serif (Arial)\n- Display (Fancy Titles)`,
+        questions: [
+          ["What is typography?", "Art of arranging text", ["Art of painting", "Art of arranging text", "Web development", "Image editing"]],
+          ["Which font is Sans Serif?", "Arial", ["Times", "Courier", "Arial", "Lucida"]]
+        ],
+        badge: "Typo Pro"
+      },
+      {
+        title: "Module 4: Design Tools",
+        note: "Modern designers use tools like Canva for quick designs, Figma for collaborative UI design, and Adobe XD for advanced prototyping. Each has strengths depending on the project.",
+        code: `Popular Tools:\n1. Canva (Posters, Social Media)\n2. Figma (UI/UX, Web)\n3. Adobe XD (Prototyping)`,
+        questions: [
+          ["Which is best for UI design?", "Figma", ["Figma", "Word", "VS Code", "Excel"]],
+          ["What does Adobe XD specialize in?", "Prototyping", ["Coding", "Drawing", "Prototyping", "Animation"]]
+        ],
+        badge: "Tool Wizard"
+      },
+      {
+        title: "Module 5: UI/UX Principles",
+        note: "UI (User Interface) focuses on visuals. UX (User Experience) focuses on interaction and usability. Together, they ensure products are both beautiful and usable.",
+        code: `Good UX = Easy Navigation + Accessibility + Fast Loading\nGood UI = Clean layout + Consistent colors + Nice fonts`,
+        questions: [
+          ["What does UX stand for?", "User Experience", ["Ultra Experience", "User Explorer", "User Experience", "Unique Xperience"]],
+          ["UI focuses on?", "Visuals", ["Speed", "Code", "Visuals", "Text only"]]
+        ],
+        badge: "UX Champion"
+      }
+    ];
+
+    const modulesDiv = document.getElementById("modules");
+    let completed = 0;
+
+    modules.forEach((mod, index) => {
+      const div = document.createElement("div");
+      div.className = "module-card";
+      div.innerHTML = `
+        <h3>${mod.title}</h3>
+        <div class="notes">${mod.note}</div>
+        <pre>${mod.code}</pre>
+        <p><em>Let's test your understanding:</em></p>
+        <div id="quiz-${index}"></div>
+        <div class="congrats-message" id="congrats-${index}">🎉 Congratulations! You unlocked the <strong>${mod.badge}</strong> badge!</div>
+        <div class="badge" id="badge-${index}" style="display:none">🏅 ${mod.badge}</div>
+      `;
+      modulesDiv.appendChild(div);
+
+      const quizDiv = document.getElementById(`quiz-${index}`);
+      let score = 0;
+
+      mod.questions.forEach(([q, correct, options]) => {
+        const qDiv = document.createElement("div");
+        qDiv.className = "quiz-question";
+        qDiv.innerHTML = `<strong>${q}</strong>`;
+        options.forEach(opt => {
+          const btn = document.createElement("button");
+          btn.className = "quiz-btn";
+          btn.textContent = opt;
+          btn.onclick = () => {
+            if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+            if (opt === correct) {
+              btn.classList.add("correct");
+              score++;
+            } else {
+              btn.classList.add("wrong");
+            }
+
+            if (score === mod.questions.length) {
+              document.getElementById(`badge-${index}`).style.display = 'inline-block';
+              document.getElementById(`congrats-${index}`).style.display = 'block';
+              completed++;
+              const percent = Math.floor((completed / modules.length) * 100);
+              const fill = document.getElementById("progressFill");
+              fill.style.width = `${percent}%`;
+              fill.textContent = `${percent}%`;
+
+              if (completed === modules.length) {
+                document.getElementById("finalScore").style.display = 'block';
+                document.getElementById("finalScore").innerHTML = `✅ Final Score: 100% <br> 🎓 You’ve completed all modules! Well done Graphic Designer!`;
+              }
+            }
+          };
+          qDiv.appendChild(btn);
+        });
+        quizDiv.appendChild(qDiv);
+      });
+    });
+  </script>
+</body>
+</html>

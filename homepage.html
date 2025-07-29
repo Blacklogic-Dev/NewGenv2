@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NewGen Innovators Network</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, red, yellow);
+      color: white;
+    }
+
+    /* Top Nav */
+    header {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      text-shadow: 1px 1px 4px black;
+    }
+
+    .top-nav, .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 0.8rem;
+    }
+
+    .top-nav a, .bottom-nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: background 0.3s, color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .top-nav a:hover, .bottom-nav a:hover {
+      background: yellow;
+      color: red;
+    }
+
+    .top-nav a.active, .bottom-nav a.active {
+      background-color: blue;
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .hero img {
+      width: 70%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px white;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .vision-box {
+      background-color: rgba(255, 0, 0, 0.9);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      font-size: 1rem;
+      user-select: none;
+    }
+
+    .vision-box:hover, .vision-box.clicked {
+      background-color: rgba(0, 0, 255, 0.9);
+      transform: scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header + Top Nav -->
+  <header>
+    <h1>NewGen Innovators Network</h1>
+  </header>
+
+  <nav class="top-nav" id="topNav">
+    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+    <a href="bot.html"><i class="fas fa-robot"></i> Chatbot</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="LogoN.png" alt="Innovation Network Logo"/>
+    <div class="tagline">Empowering Africa’s Future with Code, AI & Innovation</div>
+  </section>
+
+  <!-- Red Grid Vision Boxes -->
+  <section class="vision-grid" id="visionGrid">
+    <div class="vision-box">Learn Graphic Design Basics in 5 Days</div>
+    <div class="vision-box">Understand the Power of Programming</div>
+    <div class="vision-box">Web Development with Real-World Projects</div>
+    <div class="vision-box">Mobile App Development Simplified</div>
+    <div class="vision-box">AI & Machine Learning for Beginners</div>
+    <div class="vision-box">Launch Your First Tech Startup</div>
+  </section>
+
+  <!-- Footer CTA -->
+  <footer>
+    &copy; 2025 NewGen Innovators Network. Built by BlackLogic. All rights reserved.
+  </footer>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+  </nav>
+
+  <!-- Script for nav highlighting + box click -->
+  <script>
+    document.querySelectorAll(".vision-box").forEach(box => {
+      box.addEventListener("click", () => {
+        box.classList.toggle("clicked");
+      });
+    });
+
+    document.querySelectorAll(".top-nav a, .bottom-nav a").forEach(link => {
+      link.addEventListener("click", function(event) {
+        // Remove active class from all
+        document.querySelectorAll(".top-nav a, .bottom-nav a").forEach(a => a.classList.remove("active"));
+        // Add active class to clicked link
+        this.classList.add("active");
+        // Let the link navigate normally
+      });
+    });
+  </script>
+
+</body>
+</html>

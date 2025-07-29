@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PurposeLogic AI Chatbot</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, red, yellow);
+      color: blue;
+    }
+    header {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      height: 240px;
+      width: 180px;
+      animation: bounce 2s infinite;
+      display: block;
+      margin: 0 auto;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .description {
+      text-align: center;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .category-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 20px;
+    }
+    .category-button {
+      background-color: blue;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      width: 220px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .category-button:hover {
+      background-color: darkblue;
+    }
+    .chat-container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 12px;
+    }
+    .welcome-input {
+      width: 80%;
+      padding: 10px;
+      border: 2px solid blue;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin: 20px auto;
+      display: block;
+    }
+    .chat-box {
+      min-height: 300px;
+      max-height: 400px;
+      overflow-y: auto;
+      padding: 10px;
+    }
+    .chat-message {
+      margin: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 70%;
+    }
+    .user-message {
+      background-color: red;
+      color: white;
+      margin-left: auto;
+      text-align: right;
+    }
+    .bot-message {
+      background-color: blue;
+      color: white;
+      text-align: left;
+    }
+    .suggestion-button {
+      background-color: red;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      margin: 5px;
+      transition: background 0.3s;
+    }
+    .suggestion-button:hover {
+      background-color: darkred;
+    }
+    
+        /* NAV BARS */
+    .top-nav, .bottom-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .top-nav a, .bottom-nav a {
+      text-decoration: none;
+      font-weight: bold;
+      color: blue;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover, .bottom-nav a:hover {
+      background: yellow;
+      color: red;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body><header>
+      <nav class="top-nav" id="topNav">
+    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+    <a href="bot.html"><i class="fas fa-robot"></i> Chatbot</a>
+  </nav>
+
+  <h1>PurposeLogic AI Chatbot</h1>
+</header><img class="logo" src="Purpose.png" alt="Chatbot Logo">
+<p class="description">Meet PurposeLogic: Your career discovery guide in tech, design, AI & leadership.</p><input id="usernameInput" class="welcome-input" placeholder="Type: Hello I'm [Your Name] to start"><div class="category-buttons" id="topicButtons" style="display:none">
+  <button class="category-button" onclick="loadCategory('AI')">🤖 AI & Machine Learning</button>
+  <button class="category-button" onclick="loadCategory('WebDev')">🌐 Web & App Development</button>
+  <button class="category-button" onclick="loadCategory('Design')">🎨 Graphic Design</button>
+  <button class="category-button" onclick="loadCategory('Leadership')">🧠 Leadership in Tech</button>
+</div><div class="chat-container">
+  <div id="chatBox" class="chat-box">
+    <div class="chat-message bot-message">👋 Please greet me to unlock access!</div>
+  </div>
+  <div class="category-buttons" id="suggestionButtons"></div>
+</div><script>
+  const chatBox = document.getElementById("chatBox");
+  const suggestionBox = document.getElementById("suggestionButtons");
+  const usernameInput = document.getElementById("usernameInput");
+  const topicButtons = document.getElementById("topicButtons");
+
+  let username = "";
+
+  usernameInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+      const value = usernameInput.value.trim();
+      if (value.toLowerCase().startsWith("hello i'm")) {
+        username = value.substring(9).trim();
+        appendBot(`👋 Hello <strong>${username}</strong>! I am PurposeLogic.Design and Developed by Professor Blacklogic to help you with response in question you have related to tech.Select a topic above.`);
+        usernameInput.style.display = "none";
+        topicButtons.style.display = "flex";
+      } else {
+        appendBot("⚠️ Please greet properly: Hello I'm [Your Name]");
+      }
+    }
+  });
+
+  function appendUser(message) {
+    const div = document.createElement("div");
+    div.className = "chat-message user-message";
+    div.innerHTML = message;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+
+  function appendBot(message) {
+    const div = document.createElement("div");
+    div.className = "chat-message bot-message";
+    div.innerHTML = message;
+    chatBox.appendChild(div);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+  const topics = {
+    AI: [
+      ["What is AI?", "AI is the simulation of human intelligence in machines that are programmed to think like humans."],
+      ["What is Machine Learning?", "Machine Learning allows systems to learn and improve from experience without being explicitly programmed."],
+      ["What is supervised learning?", "Supervised learning is training a model using labeled data."],
+      ["What is unsupervised learning?", "Unsupervised learning finds patterns in data without labels."],
+      ["What is reinforcement learning?", "Reinforcement learning trains agents using rewards and penalties."],
+      ["What is neural network?", "Neural networks are computing systems inspired by the human brain, used in deep learning."],
+      ["What is data training?", "It is the process of teaching an AI model with example datasets."],
+      ["What is computer vision?", "Computer vision enables machines to interpret and understand visual data."],
+      ["What is natural language processing?", "NLP helps machines understand and respond to human language."],
+      ["What are AI ethics?", "AI ethics concern fairness, transparency, privacy, and responsibility in AI development."]
+    ],
+    WebDev: [
+      ["What is HTML?", "HTML structures the content on the web using elements."],
+      ["What is CSS?", "CSS styles HTML elements and controls layout."],
+      ["What is JavaScript?", "JavaScript enables interactivity and dynamic behavior on web pages."],
+      ["What is a frontend developer?", "A frontend developer builds the visual parts of websites that users interact with."],
+      ["What is a backend developer?", "A backend developer builds server-side logic, databases, and APIs."],
+      ["What is a framework?", "A framework provides tools and structure for building applications faster."],
+      ["What is a responsive website?", "A responsive website adapts its layout to different screen sizes."],
+      ["What is an API?", "An API lets different software systems communicate and exchange data."],
+      ["What is GitHub?", "GitHub is a platform for version control and project collaboration using Git."],
+      ["What is hosting?", "Hosting means storing your website files on a server for online access."]
+    ],
+    Design: [
+      ["What is graphic design?", "Graphic design uses visuals to communicate ideas and solve problems."],
+      ["What are design principles?", "Key principles include balance, alignment, contrast, and hierarchy."],
+      ["What is UI design?", "UI design focuses on how a product looks and feels."],
+      ["What is UX design?", "UX design ensures a product is easy, efficient, and satisfying to use."],
+      ["What is color theory?", "Color theory explains how colors interact and the emotions they evoke."],
+      ["What is typography?", "Typography is the art of arranging text for readability and impact."],
+      ["What is a wireframe?", "A wireframe is a basic layout blueprint of a website or app."],
+      ["What is a design system?", "A design system is a set of standards and components for consistent UI design."],
+      ["What is Figma?", "Figma is a collaborative design tool used for UI/UX design."],
+      ["What is accessibility in design?", "Designing for users with disabilities to ensure equal access."]
+    ],
+    Leadership: [
+      ["What is leadership in tech?", "Leading teams, projects, and innovation in technology."],
+      ["What is tech mentorship?", "Supporting others' growth and development in tech careers."],
+      ["How do you lead a team?", "With vision, empathy, communication, and accountability."],
+      ["What is agile leadership?", "A flexible, team-first leadership style focused on quick delivery and adaptation."],
+      ["What is project management?", "Planning and executing tasks to complete a project successfully."],
+      ["What is emotional intelligence?", "Recognizing, understanding, and managing emotions in yourself and others."],
+      ["What is decision making?", "Choosing the best course of action from alternatives."],
+      ["What is team collaboration?", "Working together to achieve common goals efficiently."],
+      ["What is conflict resolution?", "Handling disagreements constructively and respectfully."],
+      ["Why is leadership important in tech?", "Good leadership drives innovation, productivity, and team success."]
+    ]
+  };
+
+  function loadCategory(topic) {
+    suggestionBox.innerHTML = "";
+    topics[topic].forEach(([q, a]) => {
+      const btn = document.createElement("button");
+      btn.className = "suggestion-button";
+      btn.textContent = q;
+      btn.onclick = () => {
+        appendUser(q);
+        setTimeout(() => {
+          appendBot(`${username}, ${a}`);
+        }, 1000);
+      };
+      suggestionBox.appendChild(btn);
+    });
+  }
+</script>
+        <!-- Bottom Navigation -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+  </nav>
+</body>
+</html>

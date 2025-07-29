@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | New Gen Innovative Network</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background: linear-gradient(to right, red, yellow);
+      color: blue;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 5px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px;
+      background-color: blue;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: darkblue;
+    }
+
+    .info {
+      margin-top: 30px;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .socials {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      color: blue;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Us</h1>
+    <p>Get in touch with New Gen Innovative Network</p>
+  </header>
+
+  <div class="contact-container">
+    <h2>Send Us a Message</h2>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email">
+
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Type your message here..."></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="info">
+      <p>Email: newgeninnovative@gmail.com</p>
+      <p>Location: South Africa</p>
+    </div>
+
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">WhatsApp</a>
+    </div>
+  </div>
+
+</body>
+</html>

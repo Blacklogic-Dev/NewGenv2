@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - NewGen Innovators</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, red, yellow);
+      color: #000;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: blue;
+      padding: 15px;
+      color: white;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background: navy;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .dashboard-container {
+      margin-top: 80px;
+      padding: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .user-info {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: green;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .course-progress {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .progress-item {
+      margin-bottom: 20px;
+    }
+
+    .progress-label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .progress-bar {
+      background-color: #ccc;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 20px;
+      background-color: green;
+      text-align: right;
+      padding-right: 10px;
+      color: white;
+      line-height: 20px;
+      font-size: 12px;
+      width: 0%;
+      transition: width 1s ease-in-out;
+    }
+
+    .chart-container {
+      margin-top: 40px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .faq-btn {
+      margin-top: 30px;
+      display: inline-block;
+      background: blue;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .faq-btn:hover {
+      background: darkblue;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: navy;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+  <nav class="top-nav" id="topNav">
+    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+    <a href="bot.html"><i class="fas fa-robot"></i> Chatbot</a>
+  </nav>
+
+
+  <div class="dashboard-container">
+
+    <header>
+      <h1>Your Learning Dashboard</h1>
+    </header>
+
+    <div class="user-info">
+      <h2>Welcome, Blacklogic</h2>
+      <p>Email: blacklogic@newgen.com</p>
+      <span class="badge">AI Visionary</span>
+    </div>
+
+    <div class="course-progress">
+      <h3>Courses Progress</h3>
+
+      <div class="progress-item">
+        <div class="progress-label">AI & Machine Learning</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 80%;">80%</div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">Coding & Programming</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 65%;">65%</div>
+        </div>
+      </div>
+
+      <div class="progress-item">
+        <div class="progress-label">Graphic Design</div>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 45%;">45%</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="chart-container">
+      <h3>Progress Over Time</h3>
+      <canvas id="progressChart"></canvas>
+    </div>
+
+    <div style="text-align: center;">
+      <a class="faq-btn" href="FQAs.html">Have Questions? Visit FAQ</a>
+    </div>
+  </div>
+
+  <footer>
+        <!-- Bottom Navigation -->
+  <nav class="bottom-nav" id="bottomNav">
+    <a href="feedback.html"><i class="fas fa-comments"></i> Feedback</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+  </nav>
+
+  </footer>
+
+  <script>
+    // Chart.js Line Graph
+    const ctx = document.getElementById('progressChart').getContext('2d');
+    const progressChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Overall Progress (%)',
+          data: [25, 45, 60, 80],
+          borderColor: 'green',
+          backgroundColor: 'rgba(0,128,0,0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
